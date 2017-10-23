@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/static/css/reset.css">
+	<title>书籍详情</title>
+	<style>
+	  .main-card {
+	  	display: flex;
+	  	border-bottom: 10px solid #f5f5f5;
+	  }
+	  .main-card.-folder {
+	  	padding-bottom: 1px;
+	  }
+	  .main-card.-folder.cnt {
+	  	margin-bottom: 12px;
+	  }
+	  .main-card>.cnt,.main-card .list li {
+	  	padding-left: 14px;
+	  	padding-right: 14px;
+	  }
+	  .u-title {
+	  	 padding: 5px 8px;
+	  }
+	  .u-book {
+	  	overflow: hidden;
+	  }
+	  .book-detail-wrap{
+	  	 width: 120px;
+	  	 text-align: center;
+	  	 padding: 10px 10px 0px 10px;
+	  }
+	  .book-cover {
+	  	width: 90%;
+	  	height: 90%;
+	  	margin: 0 auto;
+	  }
+	  .book-cover img {
+	  	width: 100%;
+	  	height: 100%;
+	  }
+	  .u-book.-detail .author {
+	  	color: #4b99a7;
+	  }
+	  .u-book.-detail .author>span {
+	  	display: inline-block;
+	  	margin-right: 5px;
+	  }
+	  .u-book.-detail .title {
+	  	margin-bottom:13px; 
+	  	font-size: 16px;
+	  }
+	  .info {
+	  	flex: 1;
+	  	padding-top: 10px;
+	  }
+	  .title {
+	  	font-size: 20px;
+	  	margin: 5px 0px;
+	  }
+	  .count {
+        font-size: 13px;
+	  }
+	  .count .u-booktag {
+	  	font-size: 12px;
+	  	line-height: 14px;
+	  	display: inline-block;
+	  	color: #4eb88c;
+	  	padding: 1px 3px;
+	  	border: 1px solid #4eb88c;
+	  	border-radius: 5px;
+	  }
+	  .author_text {
+         font-size: 14px;
+         margin: 3px 0px;
+         color: #4eb88c;
+	  }
+	  .book-dash-text {
+	  	display: block;
+	  	margin: 10px auto; 
+	  	width: 95%;
+	  	font-size: 18px;
+	  	padding: 10px 0px;
+	  	text-align: center;
+	  	background-color: #4eb88c;
+	  	color: #fff;
+	  	border-radius: 5px;
+     }
+     .u-cnt {
+     	line-height: 1.6;
+     	padding: 0 14px;
+     	margin-bottom: 10px;
+     	font-size: 14px;
+     	color: #585858;
+     }
+     .folder-tail {
+     	text-align: center;
+     	font-size: 14px;
+     	border-top: 1px solid #f0f0f0;
+     	color: #8d8d8d;
+     }
+     .folder-cnt {
+       padding: 0px 6px;
+     }
+     .folder-top {
+       font-size: 16px;
+       font-weight: normal;
+       color: #8d8d8d;
+       padding: 14px 14px 8px;
+     }
+     .m-tag {
+     	line-height: 1;
+     	overflow: hidden;
+     }
+     .u-tag:nth-child(3n+1) {
+        background-color: #f6deb8;
+     }
+     .u-tag:nth-child(3n+2) {
+        background-color: #d8f9ae;
+     }
+     .u-tag:nth-child(3n+3) {
+        background-color: #c2f7f8;
+     }
+     .u-tag {
+     	margin: 0 2px 5px 0;
+     	display: inline-block;
+     	width: auto;
+     	line-height: 1.8em;
+     	padding: 0 16px;
+     	color: #766d5d;
+     	border-radius: 4px;
+     	font-size: 14px;
+     	text-align: center;
+     	border:1px solid #d3d3d3;
+     }
+     .b_cnt {
+     	clear: both;
+     }
+     .img_to{
+     	width: 100%;
+     	overflow: hidden;
+     	border-bottom: 10px solid #f5f5f5;
+      }
+      .img_list {
+      	width: 98%;
+      	margin: 0 auto;
+
+     }
+      .img_list li {
+      	float: left;
+      	width: 25%;
+      	overflow: hidden;
+      	text-align: center;
+      }
+      .img_list li div {
+      	width: 100%;
+      	}
+      .img_list li div img {
+      	width: 90%;
+      	margin: 5px auto;
+      }
+    </style>
+</head>
+<body>
+ <div class="container-wrap" id="app">
+      <% include include/common-header.html %>
+      <div class="contaniner-scroll">
+         <div class="book-page">
+           <section class="main-card">
+              <div class="book-detail-wrap"> 
+                 <div class="book-cover">
+                   <img :src="item.cover" alt="">
+                 </div>
+                    
+               </div>
+              <div class="info">
+                 <h3 class="title">{{item.title}}</h3>
+                 <p class="author">
+                    <span class="author_text">{{item.authors}}</span>
+                 </p>
+                 <div class="u-grade">
+                    <span>{{item.score}}个评价</span>
+                 </div>
+                 <p>价格: {{item.price}}书币/千字</p>
+                 <p class="count">
+                    字数:{{item.word_count}}字
+                    <span class="u-booktag -serial">连载中</span>
+                 </p>
+              </div>
+           </section>
+           <section class="main-card">
+              <div class="book-dash">
+                 <div class="wrap">
+                    <ul class="btn-group">
+                    	<li class="u-btn2" onclick="location.href='/reader'"">
+                    	    <span class="book-dash-text">开始阅读</span>
+                    	</li>
+                    </ul>
+                 </div>
+                 <div class="u-folder">
+                    <div class="u-cnt">
+                       {{item.content}}
+                    </div>
+                    <div class="folder-tail">
+                       <div>最新：{{item.lastest}}</div>
+                    </div>
+                 </div>
+              </div>
+           </section>
+           <section class="main-card">
+               <div class="u-folder">
+                  <div class="folder-top">
+                     <h3>类别标签</h3>
+                  </div>
+                  <div class="folder-cnt">
+                     <ul class="tag -color">
+                     	<li class="u-tag" v-for="tag in item.tags">
+                     	   {{tag}}
+                     	</li>
+                     	
+                     </ul>
+                  </div>
+               </div>
+           </section>
+           <section class="img_to">
+             <div class="u-title">
+                <h1>作者的其它作品</h1>
+             </div>
+              <ul class="img_list">
+              	<li v-for="book in author_books">
+              	  <div><img :src="book.cover" alt=""></div>
+              	  <p>{{book.title}}</p>
+              	</li>
+              	
+              </ul>
+           </section>           
+           <section class="img_to">
+             <div class="u-title">
+                <h1>喜欢本书的人也喜欢</h1>
+             </div>
+              <ul class="img_list">
+              	<li v-for="loveBook in related">
+              	  <div><img :src="loveBook.cover" alt=""></div>
+              	  <p>{{loveBook.title}}</p>
+              	</li>
+ 
+              </ul>
+           </section>
+         </div>
+      </div>
+ </div>
+
+ <script src="/static/script/vue.js"></script>
+ <script src="/static/script/zepto.js"></script>
+ <script src="/static/script/pages/book.js"></script>
+</body>
+</html>

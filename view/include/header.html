@@ -1,0 +1,19 @@
+<style>
+.color1 {
+  color: red !important;
+  border-bottom: 1px solid red;
+}
+.color2 {
+	color: red;
+	border-bottom: 1px solid red;
+}
+</style>
+<div class="header-tab" id="app_header">
+  <div class="Swipe-tab Swipe-tab_2 f-cb"> 
+    <a href="javascript:" @click="addClass1()"  :class="{color1:isA}">{{bookCity}}
+    </a>
+    <a href="javascript:" @click="addClass()" :class="{color2:isB}">{{bookShelf}}</a>
+  </div>
+  <em class="header-user"></em>
+  <em class="header-checkin"></em>
+</div>
