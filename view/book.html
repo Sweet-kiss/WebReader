@@ -161,6 +161,31 @@
       	width: 90%;
       	margin: 5px auto;
       }
+      .img_wrapper {
+      width: 33.3%;
+     float: left;
+   }
+    .img_padding {
+      padding-top: 100%;
+      position: relative;
+    }
+    .img_position {
+      position: absolute;
+      top: -5px;
+      right: 10px;
+      bottom: 2px;
+      left: 12px;
+      font-size: 0;
+    }
+    .img_p {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .work_title {
+      text-align: center;
+      font-size: 14px;
+    }
     </style>
 </head>
 <body>
@@ -194,7 +219,7 @@
               <div class="book-dash">
                  <div class="wrap">
                     <ul class="btn-group">
-                    	<li class="u-btn2" onclick="location.href='/reader'"">
+                    	<li class="u-btn2" @click="readBook()">
                     	    <span class="book-dash-text">开始阅读</span>
                     	</li>
                     </ul>
@@ -228,25 +253,31 @@
              <div class="u-title">
                 <h1>作者的其它作品</h1>
              </div>
-              <ul class="img_list">
-              	<li v-for="book in author_books">
-              	  <div><img :src="book.cover" alt=""></div>
-              	  <p>{{book.title}}</p>
-              	</li>
-              	
-              </ul>
+             <div class="img_l_wrap">
+                <div class="img_wrapper" v-for="book in author_books">
+                    <div class="img_padding">
+                       <div class="img_position">
+                          <img class="img_p" :src="book.cover" alt="">
+                       </div>
+
+                    </div>
+                    <p class="work_title">{{item.title}}</p>
+                </div>
+            </div>
            </section>           
            <section class="img_to">
              <div class="u-title">
                 <h1>喜欢本书的人也喜欢</h1>
              </div>
-              <ul class="img_list">
-              	<li v-for="loveBook in related">
-              	  <div><img :src="loveBook.cover" alt=""></div>
-              	  <p>{{loveBook.title}}</p>
-              	</li>
- 
-              </ul>
+                <div class="img_wrapper" v-for="book in related">
+                    <div class="img_padding">
+                       <div class="img_position">
+                          <img class="img_p" :src="book.cover" alt="">
+                       </div>
+
+                    </div>
+                    <p class="work_title">{{item.title}}</p>
+                </div>
            </section>
          </div>
       </div>
