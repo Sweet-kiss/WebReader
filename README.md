@@ -19,5 +19,4 @@
 * 书架页
 * 阅读器页面
 #项目展示
-<iframe height=500 width=500 src="https://github.com/Sweet-kiss/WebReader/blob/master/static/bookgif/book.gif">
 ![book](https://github.com/Sweet-kiss/WebReader/blob/master/static/bookgif/book.gif =400x400)
