@@ -134,7 +134,7 @@ app.use(controller.get('/ajax/chapter', function*(){
 	this.body = service.get_chapter_data();
 }));
 
-app.use(controller.get('/ajax/chapter_data', function*(){
+app.use(controller.get('/ajax/chapter/data', function*(){
 	this.set('Cache-Control', 'no-cache');
 	var params = querystring.parse(this.req._parsedUrl.query);
 	var id = params.id;

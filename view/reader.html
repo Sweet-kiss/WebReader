@@ -215,7 +215,7 @@
   </div>
   
   <div id="top_nav" class="top_nav" style="display: none;">
-    <div class="icon-back"></div>
+    <div onclick="goback()" class="icon-back"></div>
     <div class="nav-title">返回书架</div>
   </div>
   <div id="fiction_chapter_title">
@@ -315,14 +315,14 @@
   </div>
 </div>
 <a class="btn_d">点我</a>
-
-<script src="lib/zepto.js"></script>
+<script src="static/script/zepto.js"></script>
 <script>
   window.jQuery = $;
 </script>
-<script src="js/jquery.base64.js"></script>	
-<script src="js/jquery.jsonp.js"></script>
+<script src="/static/script/jquery.base64.js"></script>	
+<script src="/static/script/jquery.jsonp.js"></script>
 <script>
+
   (function(){
 
      var Util = (function () {
@@ -426,13 +426,13 @@
 
      	//todo 实现和阅读器相关的数据交互的方法
      	var getFictionInfo = function () {
-     		$.get('data/chapter.json',function(data){
+     		$.get('/ajax/chapter',function(data){
      			console.log(data);
      			//TODO 获得拿节信息之后的回调
      			Chapter_id = data.chapters[1].chapter_id;
      			console.log(Chapter_id);
 
-               	var URL = 'data/data'+ Chapter_id + '.json';
+               	var URL = '/ajax/chapter/data';
                 console.log(URL);
 
                 $.get(URL,function(data){
@@ -557,6 +557,11 @@
      }
      main ();
   }) ();
+</script>
+<script>
+ function goback(){
+ history.go(-1);//返回或者history.back();
+}
 </script>
 </body>
 </html>
