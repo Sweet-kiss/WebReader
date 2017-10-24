@@ -19,6 +19,4 @@
 * 书架页
 * 阅读器页面
 ## 项目展示
-![book](https://github.com/Sweet-kiss/WebReader/blob/master/static/bookgif/book.gif =400x400)
-
 ![loading](https://github.com/Sweet-kiss/WebReader/blob/master/static/bookgif/book.gif)
